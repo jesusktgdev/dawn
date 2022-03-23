@@ -53,6 +53,12 @@
     color: #2d2d2d;
 }
 
+.productsgrid__item .productsgrid__item_form button[type="submit"]:disabled {
+    background: #bebebe;
+    color: #2d2d2d;
+    cursor: not-allowed;
+}
+
 .productsgrid__item--image {
     width: 100%;
     height: 200px;

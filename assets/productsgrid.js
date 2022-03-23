@@ -42,6 +42,6 @@ const handleOnClick = (event, mainImage, form) => {
     if( stock == 0 ){
         form.querySelector('button[type="submit"]').setAttribute("disabled", true);
     } else {
-        form.querySelector('button[type="submit"]').setAttribute("disabled", false);
+        form.querySelector('button[type="submit"]').removeAttribute("disabled");
     }
 };
