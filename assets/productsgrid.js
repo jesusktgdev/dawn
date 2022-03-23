@@ -25,6 +25,10 @@ const manipulateProduct = (item) => {
             }
         } );
     }
+
+    ["mouseup", "keyup"].map( (i) => {
+        formAddToCart.querySelector('input[type="number"]').addEventListener(i, validateCant);
+    } );
 };
 
 const handleOnHover = (event, mainImage) => {
@@ -43,5 +47,15 @@ const handleOnClick = (event, mainImage, form) => {
         form.querySelector('button[type="submit"]').setAttribute("disabled", true);
     } else {
         form.querySelector('button[type="submit"]').removeAttribute("disabled");
+    }
+};
+
+const validateCant = (e) => {
+    let value = parseInt(e.target.value);
+    console.log(value);
+    if(value == 0){
+        toastr.warning('No puedes elegir menos de un producto');
+        e.target.value = 1;
+        return false;
     }
 };

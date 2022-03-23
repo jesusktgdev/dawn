@@ -71,6 +71,7 @@
     margin: 0 !important;
     text-transform: uppercase;
     text-align: center;
+    cursor: pointer;
 }
 
 .productsgrid__item--options {

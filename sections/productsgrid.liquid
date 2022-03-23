@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="{{ 'productsgrid.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
+<script defer src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+<script defer src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script defer src="{{ 'productsgrid.js' | asset_url }}"></script>
+
 
 {% assign selectectCol = collections[section.settings.collection] %}
 
@@ -16,6 +20,7 @@
         {% for product in selectectCol.products %}
             <article class="productsgrid__item" data-id="{{ product.id }}">
                 <img
+                    loading="lazy"
                     class="productsgrid__item--image"
                     alt="{{ product.featured_image.alt}}"
                     src="{{ product.featured_image | img_url: '1024x1024' }}"
@@ -23,12 +28,12 @@
                     height="1024"
                     data-original="{{ product.featured_image | img_url: '1024x1024' }}"
                     >
-                <h3 class="productsgrid__item--title">{{ product.title }}</h3>
+                <h3 onclick="window.location.href='{{ product.url }}'" class="productsgrid__item--title">{{ product.title }}</h3>
                 <h5>{{ product.price | money}}</h5>
                 <div class="productsgrid__item--options">
                     {% for options in product.variants %}
                         <div class="productsgrid__item--items">
-                            <img data-stock="{{ options.inventory_quantity }}" data-id="{{ options.id }}" alt="{{ options.featured_image.alt }}" src="{{ options.featured_image | img_url: '1024x1024' }}" width="500" height="500"  />
+                            <img loading="lazy" data-stock="{{ options.inventory_quantity }}" data-id="{{ options.id }}" alt="{{ options.featured_image.alt }}" src="{{ options.featured_image | img_url: '1024x1024' }}" width="500" height="500"  />
                         </div>
                     {% endfor %}
                 </div>
