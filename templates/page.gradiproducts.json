@@ -1,11 +1,13 @@
 {
-    "sections": {
-        "main": {
-            "type": "productsgrid",
-            "settings": {}
-        }
-    },
-    "order": [
-        "main"
-    ]
+  "sections": {
+    "main": {
+      "type": "productsgrid",
+      "settings": {
+        "collection": "mi-coleccion"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
 }
