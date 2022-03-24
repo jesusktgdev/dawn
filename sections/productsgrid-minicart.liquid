@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="{{ 'productsgrid-minicart.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+<script defer src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+<script defer src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script defer src="{{ 'productsgrid-minicart.js' | asset_url }}"></script>
+
+<aside id="productsgrid-minicart">
+    <div class="productsgrid-minicart__container">
+        <h3 class="productsgrid-minicart__title">Carrito</h3>
+        {% if cart.item_count == 0 %}
+            <div class="productsgrid-minicart__container_cart-empty">
+                <h3 class="productsgrid-minicart__message">Carrito vacio</h3>
+            </div>
+        {% endif %}
+        {% if cart.item_count > 0 %}
+            <div class="productsgrid-minicart__container_items">
+                {% for cartItem in cart.items %}
+                    <div class="productsgrid-minicart__container_items__element">
+                        <div class="productsgrid-minicart__container_items__element_grid">
+                            <div>
+                                <img loading="lazy" alt="{{ cartItem.title }}" src="{{ cartItem.image | image_url }}" width="100" height="100"  />
+                            </div>
+                            <div>
+                                <h6>{{ cartItem.title | upcase }}</h6>
+                            </div>
+                        </div>
+                        <div class="productsgrid-minicart__container_items__element_options">
+                            <div data-id="{{ cartItem.id }}" class="productsgrid-minicart__container_items__element_options--cant">
+                                <button data-action="down">-</button>
+                                <input disabled type="number" value="{{ cartItem.quantity }}" min="1" />
+                                <button data-action="up">+</button>
+                            </div>
+                            <div class="productsgrid-minicart__container_items__element_options--price">
+                                {{ cartItem.price | money_with_currency }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="productsgrid-minicart__container_items_loading">
+            <img src="{{ 'loading.gif' | asset_url }}" alt="loading" width="60" height="60" loading="lazy" />
+        </div>
+    </div>
+</aside>
+
+{% schema %}
+{
+    "name": "Products grid - Mini Cart",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+
+    ]
+}
+{% endschema %}

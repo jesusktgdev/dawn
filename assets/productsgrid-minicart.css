@@ -1,0 +1,144 @@
+#productsgrid-minicart {
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    max-width: 600px;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+    background-color: #000;
+    padding: 30px;
+}
+
+.productsgrid-minicart__container_cart-empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productsgrid-minicart__title {
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.productsgrid-minicart__message {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.productsgrid-minicart__container {
+    width: 100%;
+    border: 1px solid #fff;
+    color: #fff !important;
+    height: 100%;
+    position: relative;
+}
+
+.productsgrid-minicart__container_items_loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.753);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    display: none;
+    transition: all ease .5s;
+}
+
+.productsgrid-minicart__container_items_loading.show {
+    opacity: 1;
+    display: flex;
+}
+
+.productsgrid-minicart__container_items {
+    padding: 10px;
+}
+.productsgrid-minicart__container_items__element {
+    border-bottom: solid 1px #fff;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 1rem;
+}
+.productsgrid-minicart__container_items__element h6 {
+    color: #fff;
+}
+.productsgrid-minicart__container_items__element_options {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 10px;
+}
+
+.productsgrid-minicart__container_items__element_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 10px;
+}
+
+.productsgrid-minicart__container_items__element_grid img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.productsgrid-minicart__container_items__element_options--cant {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+}
+
+.productsgrid-minicart__container_items__element_options--cant button {
+    border: solid 1px #fff;
+    font-size: 2rem;
+    text-align: center;
+    padding: 5px;
+    border-radius: 0px;
+    cursor: pointer;
+    color: #fff;
+    background-color: transparent;
+}
+
+.productsgrid-minicart__container_items__element_options--cant button:disabled {
+    cursor: not-allowed;
+
+}
+
+.productsgrid-minicart__container_items__element_options--cant input {
+    width: 100%;
+    background: transparent;
+    border: solid 1px #fff;
+    color: #fff;
+    padding: 5px;
+    border-radius: 0px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.productsgrid-minicart__container_items__element_options--cant input:focus-visible,
+.productsgrid-minicart__container_items__element_options--cant input:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.productsgrid-minicart__container_items__element_options--cant input::-webkit-outer-spin-button,
+.productsgrid-minicart__container_items__element_options--cant input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.productsgrid-minicart__container_items__element_options--cant input[type=number] {
+    -moz-appearance: textfield;
+}
