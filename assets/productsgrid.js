@@ -10,6 +10,48 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 
+const serializeForm = function (form) {
+	var obj = {};
+	var formData = new FormData(form);
+	for (var key of formData.keys()) {
+		obj[key] = formData.get(key);
+	}
+	return obj;
+};
+
+const callBackAddTocart = async (data) => {
+    try {
+        const setting = {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        };
+        const uri = window.Shopify.routes.root + "cart/add.js";
+        const response = await fetch(uri, setting);
+        return [response, response.json()];
+    } catch(error){
+        if(error){
+            throw new Error(error);
+        }
+    }
+};
+
+const addToCartAjax = async (e) => {
+    e.preventDefault();
+    try {
+        let form = serializeForm(e.target);
+        const respose = await callBackAddTocart(form);
+        console.log(respose);
+    } catch(error) {
+        throw new Error(error);
+    }
+    const event = new Event('onaddtocartmystore');
+    document.dispatchEvent(event);
+};
+
 const manipulateProduct = (item) => {
     let main_image = item.querySelector('.productsgrid__item--image');
     let formAddToCart = item.querySelector('.productsgrid__item_form');

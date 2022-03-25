@@ -37,8 +37,8 @@
                         </div>
                     {% endfor %}
                 </div>
-                <form class="productsgrid__item_form" method="post" action="/cart/add">
-                    <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                <form onsubmit="addToCartAjax(event)" class="productsgrid__item_form" method="post" action="/cart/add">
+                    <input type="hidden" name="id" id="idproduct" value="{{ product.variants.first.id }}" />
                     <input min="1" type="number" id="quantity" name="quantity" value="1"/>
                     <button type="submit">
                         {% render('icon-cart') %} Añadir al carrito
