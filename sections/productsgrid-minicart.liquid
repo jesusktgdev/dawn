@@ -7,7 +7,7 @@
 
 <div id="productsgrid-minicart_fire">
     <button>
-        {% render('icon-cart') %}
+        {% render 'icon-cart' %}
     </button>
 </div>
 
@@ -62,4 +62,13 @@
 
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render('icon-cart') %}"
+  to: "{% render 'icon-cart' %}"
+  position: 507..531
+{%- endcomment -%}

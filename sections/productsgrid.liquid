@@ -41,7 +41,7 @@
                     <input type="hidden" name="id" id="idproduct" value="{{ product.variants.first.id }}" />
                     <input min="1" type="number" id="quantity" name="quantity" value="1"/>
                     <button type="submit">
-                        {% render('icon-cart') %} Añadir al carrito
+                        {% render 'icon-cart' %} Añadir al carrito
                     </button>
                 </form>
             </article>
@@ -62,4 +62,13 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render('icon-cart') %}"
+  to: "{% render 'icon-cart' %}"
+  position: 2384..2408
+{%- endcomment -%}
